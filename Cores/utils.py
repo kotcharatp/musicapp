@@ -18,6 +18,8 @@ def extract_frequency(audio_fname, out_fname):
         sonic_path = 'bin/sonic-annotator_osx'
     elif platform.system() == 'Linux':
         sonic_path = 'bin/sonic-annotator_linux'
+    else:
+        sonic_path = 'bin/sonic-annotator.exe'
 
     # pass to sonic annotator for pitch extraction
     pitch_output = subprocess.check_output([sonic_path, '-d', 'vamp:pyin:pyin:smoothedpitchtrack',
