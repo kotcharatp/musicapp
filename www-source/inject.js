@@ -1,0 +1,1 @@
+var music_duration = 5.810793650
