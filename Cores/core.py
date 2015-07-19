@@ -69,7 +69,7 @@ def prepare(pitch, amp):
 
     # just to pad the amplitude
     # in case we get error from down sampling
-    diff = len(xs_p)-len(new_amp_in_pitch)
+    diff = abs(len(xs_p)-len(new_amp_in_pitch))
     for i in range(diff):
         new_amp_in_pitch.append(0)
 
@@ -77,7 +77,7 @@ def prepare(pitch, amp):
     all_values = np.zeros((len(xs_p), 3))
     all_values[:, 0] = xs_p
     all_values[:, 1] = ys_p
-    all_values[:, 2] = new_amp_in_pitch
+    all_values[:, 2] = new_amp_in_pitch[:len(xs_p)]
 
     return all_values
 
