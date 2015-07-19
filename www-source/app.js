@@ -121,7 +121,7 @@ function start() {
     tl3.play();
     tl4.play();
     tl5.play();
-    //audio.play();
+    audio.play();
 }
 
 function stop() {
@@ -130,5 +130,5 @@ function stop() {
     tl3.pause();    tl3.seek(0);
     tl4.pause();    tl4.seek(0);
     tl5.pause();    tl5.seek(0);
-    //audio.stop();
+    audio.stop();
 }
