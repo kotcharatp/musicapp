@@ -52,7 +52,7 @@ tl5.to(p5, 2, { opacity: 0, bottom: 0 });
 
 // Initialize Howl with music file
 var audio = new Howl({
-  urls: ['singing-female.wav']
+  urls: ['music.wav']
 });
 
 /*

@@ -5,6 +5,7 @@ __author__ = 'hibiki'
 
 from PyQt4 import QtGui
 from Cores import core, utils
+import numpy as np
 
 
 class MainMenuWidget(QtGui.QWidget):
@@ -57,7 +58,16 @@ class MainMenuWidget(QtGui.QWidget):
         self.parent.amp_widget.plot(self.parent.shares['time'], self.parent.shares['amp'])
 
     def handle_export_btn(self):
-        pass
+        t = self.parent.shares['time']
+        f = self.parent.shares['freq']
+        a = self.parent.shares['amp']
+
+        alls = np.zeros((len(t), 3))
+        alls[:, 0] = t
+        alls[:, 1] = f
+        alls[:, 2] = a
+
+        core.export(alls)
 
 
 
