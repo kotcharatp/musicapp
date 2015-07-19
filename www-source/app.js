@@ -17,7 +17,7 @@ tl5 = new TimelineMax({ paused:true });
 */
 var bottom_margin = 50;
 var top_margin = 50;
-var amp_scale_factor = 50;
+var amp_scale_factor = 20;
 
 
 /*
@@ -42,8 +42,8 @@ var max_amp = 0;
 var min_amp = 1000000;
 for( var i = 0; i < dataset.length; i++ ) {
     var o = dataset[i];
-    if( o.f > max_amp ) max_amp = o.a;
-    if( o.f < min_amp ) min_amp = o.a;
+    if( o.a > max_amp ) max_amp = o.a;
+    if( o.a < min_amp ) min_amp = o.a;
 }
 
 // Normalize amplitude by dividing with max_amp
