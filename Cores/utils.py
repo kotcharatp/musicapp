@@ -4,6 +4,7 @@ import csv
 import platform
 import io
 import subprocess
+import numpy
 from scipy.io.wavfile import read
 
 
@@ -41,6 +42,9 @@ def extract_amplitude(audio_fname, out_fname):
     i = 0
     with open(out_fname, 'w') as out:
         for value in wavdata:
+            # handle 2 channel audio
+            if not isinstance(value, numpy.int16):
+                value = (value[0] + value[1]) / 2
             out.write(str(i) + ',' + str(value) + '\n')
             i += 1
 
