@@ -6,6 +6,7 @@ __author__ = 'hibiki'
 from PyQt4 import QtGui
 from Cores import core, utils
 import numpy as np
+import shutil
 
 
 class MainMenuWidget(QtGui.QWidget):
@@ -38,10 +39,15 @@ class MainMenuWidget(QtGui.QWidget):
     def handle_load_btn(self):
         # open file dialog
         filename = QtGui.QFileDialog.getOpenFileName(self.parent, 'Open music', '', '.wav file (*.wav)')
+        # save source path
+        self.parent.shares['source'] = filename
 
         # extract amplitude and frequency
         utils.extract_amplitude(filename, 'share/amp.csv')
         utils.extract_frequency(filename, 'share/freq.csv')
+
+        # extract duration of this music
+        self.parent.shares['duration'] = utils.extract_duration()
 
         # prepare values for later operations
         prepared_values = core.prepare('share/freq.csv', 'share/amp.csv')
@@ -58,12 +64,21 @@ class MainMenuWidget(QtGui.QWidget):
         self.parent.amp_widget.plot(self.parent.shares['time'], self.parent.shares['amp'])
 
     def handle_export_btn(self):
-        alls = np.zeros((len(t), 3))
+        alls = np.zeros((len(self.parent.shares['time']), 3))
         alls[:, 0] = self.parent.shares['time']
         alls[:, 1] = self.parent.shares['freq']
         alls[:, 2] = self.parent.shares['amp']
 
+        # export dataset.js for viewing in the web
         core.export(alls)
+
+        # copy source wave file and overwrite in output www-source
+        shutil.copy2(self.parent.shares['source'], 'www-source/music.wav')
+
+        # overwrite inject.js with proper value of music_duration
+        with open('www-source/inject.js', 'w') as inject:
+            inject.write('var music_duration = ')
+            inject.write(str(self.parent.shares['duration']))
 
         QtGui.QMessageBox.information(self.parent, 'Export',
                                       "Successfully Exported. Please check dataset.json in www-source",
