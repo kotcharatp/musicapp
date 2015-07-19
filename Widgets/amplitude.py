@@ -35,13 +35,17 @@ class AmplitudeWidget(QtGui.QWidget):
 
         # create label
         self.label = QtGui.QLabel('0', self)
+        plot_label = QtGui.QLabel('Output of Guassian smooth on AMPLITUDE data', self)
+        gauss_label = QtGui.QLabel('Set smooth degree', self)
 
         # add slider and label into group
         slider_group.addWidget(slider)
         slider_group.addWidget(self.label)
 
         # add slider and plot area into ROOT
+        root.addWidget(plot_label)
         root.addWidget(self.plot_widget)
+        root.addWidget(gauss_label)
         root.addLayout(slider_group)
 
         # set layout
