@@ -69,5 +69,7 @@ class MainMenuWidget(QtGui.QWidget):
 
         core.export(alls)
 
+        QtGui.QMessageBox.information(self, 'Export',
+            "Exported, please check dataset.json in www-source", QtGui.QMessageBox.Ok)
 
 

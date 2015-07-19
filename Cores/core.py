@@ -117,10 +117,10 @@ def export(all_values):
         a.writerows(all_values)
 
     csv_file = open('all.csv', 'r')
-    json_file = open('dataset.json', 'w')
+    json_file = open('www-source/dataset.json', 'w')
 
     fieldnames = ("t", "f", "a")
-    reader = csv.DictReader( csv_file, fieldnames)
+    reader = csv.DictReader(csv_file, fieldnames)
 
     # just to create item dataset, so it is easier to use with js
     json_file.write("dataset = ")
