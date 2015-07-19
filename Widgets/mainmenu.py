@@ -42,6 +42,10 @@ class MainMenuWidget(QtGui.QWidget):
         # save source path
         self.parent.shares['source'] = filename
 
+        # user cancelled
+        if len(filename) == 0:
+            return
+
         # extract amplitude and frequency
         utils.extract_amplitude(filename, 'share/amp.csv')
         utils.extract_frequency(filename, 'share/freq.csv')
