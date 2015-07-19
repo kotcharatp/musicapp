@@ -1,0 +1,55 @@
+/* variables */
+$origin_left: 200px
+$space: 20px
+$block_color: white
+
+/* mixins */
+@mixin border-radius($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    border-radius: $radius
+
+/* define rules */
+body
+    background-color: black
+    margin: 0px
+
+footer
+
+    .center
+        text-align: center
+        background-color: white
+        position: absolute
+        float: none
+        height: 30px
+        top: 0px
+        right: 0px
+
+        button
+            width: 200px
+            height: 30px
+            margin: 0px
+
+.point
+    width: 20px
+    height: 20px
+    background-color: $block_color
+    position: absolute
+    bottom: 100px
+    @include border-radius(5px)
+
+#p1
+    left: $origin_left + $space * 0
+
+#p2
+    left: $origin_left + $space * 1
+
+#p3
+    left: $origin_left + $space * 2
+
+#p4
+    left: $origin_left + $space * 3
+
+#p5
+    left: $origin_left + $space * 4

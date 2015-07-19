@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music Visual Apps</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div class="point" id="p1"></div>
+    <div class="point" id="p2"></div>
+    <div class="point" id="p3"></div>
+    <div class="point" id="p4"></div>
+    <div class="point" id="p5"></div>
+
+    <footer>
+        <div class="center">
+            <button type="button" onclick="start()">Start</button>
+            <button type="button" onclick="stop()">Stop and Reset</button>
+        </div>
+    </footer>
+
+    <!-- include scripts -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="freqmean.js"></script>
+    <script src="howler.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

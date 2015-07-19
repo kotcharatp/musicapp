@@ -1,15 +1,47 @@
+/* variables */
+/* mixins */
+/* define rules */
 body {
-    background-color: black;
-}
+  background-color: black;
+  margin: 0px; }
 
-#point {
-    bottom: 0px;
-    width: 10px;
-    height: 10px;
-    radius: 3px;
-    background-color: white;
-    position: absolute;
-    left: 200px;
-    border: 2px solid;
-    border-radius: 25px;
-}
+footer .center {
+  text-align: center;
+  background-color: white;
+  position: absolute;
+  float: none;
+  height: 30px;
+  top: 0px;
+  right: 0px; }
+  footer .center button {
+    width: 200px;
+    height: 30px;
+    margin: 0px; }
+
+.point {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  bottom: 100px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+#p1 {
+  left: 200px; }
+
+#p2 {
+  left: 240px; }
+
+#p3 {
+  left: 280px; }
+
+#p4 {
+  left: 320px; }
+
+#p5 {
+  left: 360px; }
+
+/*# sourceMappingURL=style.css.map */
