@@ -44,3 +44,12 @@ def extract_amplitude(audio_fname, out_fname):
             out.write(str(i) + ',' + str(value) + '\n')
             i += 1
 
+
+def extract_duration():
+    # read freq.csv and extract last time component
+    with open('share/freq.csv') as freq_data:
+        reader = csv.reader(freq_data, delimiter=',')
+        records = [row for row in reader]
+        return records[len(records)-1][0]
+
+
