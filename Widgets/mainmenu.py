@@ -58,18 +58,16 @@ class MainMenuWidget(QtGui.QWidget):
         self.parent.amp_widget.plot(self.parent.shares['time'], self.parent.shares['amp'])
 
     def handle_export_btn(self):
-        t = self.parent.shares['time']
-        f = self.parent.shares['freq']
-        a = self.parent.shares['amp']
-
         alls = np.zeros((len(t), 3))
-        alls[:, 0] = t
-        alls[:, 1] = f
-        alls[:, 2] = a
+        alls[:, 0] = self.parent.shares['time']
+        alls[:, 1] = self.parent.shares['freq']
+        alls[:, 2] = self.parent.shares['amp']
 
         core.export(alls)
 
-        QtGui.QMessageBox.information(self, 'Export',
-            "Exported, please check dataset.json in www-source", QtGui.QMessageBox.Ok)
+        QtGui.QMessageBox.information(self.parent, 'Export',
+                                      "Successfully Exported. Please check dataset.json in www-source",
+                                      QtGui.QMessageBox.Ok)
+
 
 
