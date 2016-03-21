@@ -1,9 +1,14 @@
 // locate target for animating
+
 var p1 = document.getElementById('p1');
 var p2 = document.getElementById('p2');
 var p3 = document.getElementById('p3');
 var p4 = document.getElementById('p4');
 var p5 = document.getElementById('p5');
+
+// get value from text
+var x = document.getElementById("historyVal");
+console.log("x is " + parseInt(x))
 
 // create timelines
 tl1 = new TimelineMax({ paused:true });
@@ -62,7 +67,11 @@ var duration = music_duration / dataset.length;
     ANIMATION
 */
 
-for (var i = 0; i < dataset.length - 15; i++ ) {
+for (var i = 0; i < dataset.length - 12; i++ ) {
+    var h1 = Math.floor(x/4);
+    var h2 = Math.floor(x/2);
+    var h2 = Math.floor(x*(3/4));
+
     tl1.to(p1, duration, {
         bottom: dataset[i].f,
         width: dataset[i].a ,
@@ -131,6 +140,8 @@ function stop() {
     tl5.pause();    tl5.seek(0);
     audio.stop();
 }
+
+function
 
 function map( x, in_min, in_max, out_min, out_max)
 {

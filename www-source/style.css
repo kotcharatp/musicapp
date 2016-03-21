@@ -2,6 +2,7 @@
 /* mixins */
 /* define rules */
 body {
+  color: white;
   background-color: black;
   margin: 0px; }
 
@@ -53,6 +54,10 @@ footer .center {
   left: 320px; }
 
 #p5 {
-  left: 360px; } 
+  left: 360px; }
+
+#slider {
+  margin: 40px;
+}
 
 /*# sourceMappingURL=style.css.map */

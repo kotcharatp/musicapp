@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
     <div class="point" id="p1"></div>
     <div class="point" id="p2"></div>
     <div class="point" id="p3"></div>
@@ -26,6 +25,24 @@
     <script src="dataset.js"></script>
     <script src="inject.js"></script>
     <script src="app.js"></script>
+    <script src="jquery-2.1.4.min.js"> </script>
+    <script src="seekbar.js"></script>
+
+
+  <!-- get input -->
+    <div id="slider"></div>
+    Seek To : <input id="seekTo" type="text" value="10"/>
+    <input id="update" type="button" value="Update" onclick="showValue()" />
+    Current Value : <span id="val">0</span>
+    <dir id="historyVal" type="number">
+
+    <script>
+    function showValue(){
+        var x = document.getElementById("seekTo").value;
+        document.getElementById("val").innerHTML= x;
+        document.getElementById("historyVal").value = x;
+    }
+    </script>
 
 </body>
 
